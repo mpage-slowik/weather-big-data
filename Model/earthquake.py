@@ -1,13 +1,11 @@
 from google.cloud import bigquery
 import json
-
-# class Earthquake():
-
-    # country = StringCol()
-    # latitude = StringCol()
-    # longitude = StringCol()
+import pandas as pd
 
 def getData():
+    data = getJsonData()
+    print(data)
+def getJsonData():
     client = bigquery.Client()
     query = (
         "SELECT TO_JSON_STRING(t,true)" + "FROM ( "
@@ -18,22 +16,17 @@ def getData():
     )
     query_job = client.query(query)  # API request - starts the query
     data = []
-    
+    t = {}
+    i = 0
     for row in query_job:  # API request - fetches results
         # Row values can be accessed by field name or index
         d = json.loads(row[0])
-        print(d['id'])
-        data.append(d)
-        print("\n")
 
-    print(data)
-def getJsonData(row):
-    if (1 == 1):
-        print(1)
-
-def Main():
-    if (1 == 1):
-        print(1)
+        t[i] = {'longitude': [d['longitude']], 'latitude': [d['latitude']]}
+        i = i +1
+    df = pd.DataFrame(data=t)
+    data.append(df)
+    return data
 
 
 if __name__ == '__main__':
