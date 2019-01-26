@@ -1,5 +1,5 @@
 from google.cloud import bigquery
-import simplejson
+import json
 
 # class Earthquake():
 
@@ -11,15 +11,17 @@ def getData():
     client = bigquery.Client()
     query = (
         "SELECT TO_JSON_STRING(t,true)" + "FROM ( "
-        "SELECT  * FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes` " +
-        "WHERE latitude IS NOT NULL AND longitude IS NOT NULL " +
-        "LIMIT 10" +") as t"
+                "SELECT  * FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes` " +
+                "WHERE latitude IS NOT NULL AND longitude IS NOT NULL " +
+                "LIMIT 10" +
+            ") as t"
     )
     query_job = client.query(query)  # API request - starts the query
 
     for row in query_job:  # API request - fetches results
         # Row values can be accessed by field name or index
-        print(row[0])
+        d = json.loads(row[0])
+        print(d['id'])
         print("\n")
         break
 
