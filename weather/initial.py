@@ -10,13 +10,16 @@ def getData():
         location="US",
     )  # API request - starts the query
 
-
+    return query_job
     for row in query_job:  # API request - fetches results
         # Row values can be accessed by field name or index
-        assert row[0] 
-        # == row.name == row["name"]
-        print(row[7])
+        assert row[0] == row.name == row["state"]
+
+   #     return row[7]
+        print(row)
         print("\n")
         #noaa_tsunami
         #noaa_significant_earthquakes
         #noaa_spc
+if __name__ == '__main__':
+    getData()
