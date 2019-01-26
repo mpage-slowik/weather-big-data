@@ -15,5 +15,3 @@ for row in query_job:  # API request - fetches results
     # Row values can be accessed by field name or index
     assert row[0] == row.name == row["name"]
     print(row)
-
-#from google.cloud import storage
