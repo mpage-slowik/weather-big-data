@@ -1,6 +1,8 @@
 from sqlobject import *
 from google.cloud import bigquery
 import simplejson as json
+import json
+import pandas as pd
 
 def getWindReports():
     client = bigquery.Client()
@@ -11,25 +13,18 @@ def getWindReports():
         "LIMIT 10" +") as t"
         # "SELECT * FROM `bigquery-public-data.noaa_spc.wind_reports` LIMIT 1"
     )
-    query_job = client.query(
-        query,
-        # Location must match that of the dataset(s) referenced in the query.
-        location="US",
-    )  # API request - starts the query
-
-    windData = []
-
+    query_job = client.query(query)  # API request - starts the query
+    
+    windData = {}
+    i = 0
     for row in query_job:  # API request - fetches results
         d = json.loads(row[0])
-        cords = {
-            'longitude': d['longitude'],
-            'latitude': d['latitude']
-        }
-        print(cords)
-        winData.append(cords)
-        print("\n")
 
-    return windData
+        windData[i] = {'longitude': [d['longitude']], 'latitude': [d['latitude']]}
+        i = i +1
+    df = pd.DataFrame(data=windData)
+    print(df)
+    return df
 
 def getTornadoReports():
     client = bigquery.Client()
@@ -40,25 +35,18 @@ def getTornadoReports():
         "LIMIT 10" +") as t"
         # "SELECT * FROM `bigquery-public-data.noaa_spc.wind_reports` LIMIT 1"
     )
-    query_job = client.query(
-        query,
-        # Location must match that of the dataset(s) referenced in the query.
-        location="US",
-    )  # API request - starts the query
+    query_job = client.query(query)  # API request - starts the query
 
-    tornData = []
+    tornData = {}
+    i = 0
 
     for row in query_job:  # API request - fetches results
         d = json.loads(row[0])
-        cords = {
-            'longitude': d['longitude'],
-            'latitude': d['latitude']
-        }
-        print(cords)
-        tornData.append(cords)
-        print("\n")
-
-    return tornData
+        tornData[i] = {'longitude': [d['longitude']], 'latitude': [d['latitude']]}
+        i = i +1
+    df = pd.DataFrame(data= tornData)
+    print(df)
+    return df
 
 def getHailReports():
     client = bigquery.Client()
@@ -69,26 +57,18 @@ def getHailReports():
         "LIMIT 10" +") as t"
         # "SELECT * FROM `bigquery-public-data.noaa_spc.wind_reports` LIMIT 1"
     )
-    query_job = client.query(
-        query,
-        # Location must match that of the dataset(s) referenced in the query.
-        location="US",
-    )  # API request - starts the query
+    query_job = client.query(query)  # API request - starts the query
 
-    hailData = []
-
+    hailData = {}
+    i = 0
     for row in query_job:  # API request - fetches results
         d = json.loads(row[0])
-        cords = {
-            'longitude': d['longitude'],
-            'latitude': d['latitude']
-        }
-        print(cords)
-        hailData.append(cords)
-        print("\n")
-
-    return hailData
+        hailData[i] = {'longitude': [d['longitude']], 'latitude': [d['latitude']]}
+        i = i +1
+    df = pd.DataFrame(data = hailData)
+    print(df)
+    return df
 
 if __name__ == '__main__':
-    getHailReports()
+    getTornadoReports()
 
