@@ -2,9 +2,7 @@ from google.cloud import bigquery
 def getData():
     client = bigquery.Client()
     query = (
-        "SELECT name FROM `bigquery-public-data.usa_names.usa_1910_2013` "
-        'WHERE state = "TX" '
-        "LIMIT 100"
+        "SELECT * FROM `bigquery-public-data.noaa_tsunami.historical_runups` LIMIT 10"
     )
     query_job = client.query(
         query,
@@ -12,10 +10,13 @@ def getData():
         location="US",
     )  # API request - starts the query
 
+
     for row in query_job:  # API request - fetches results
         # Row values can be accessed by field name or index
-        assert row[0] == row.name == row["name"]
-        print(row)
-    #noaa_tsunami
-    #noaa_significant_earthquakes
-    #noaa_spc
+        assert row[0] 
+        # == row.name == row["name"]
+        print(row[7])
+        print("\n")
+        #noaa_tsunami
+        #noaa_significant_earthquakes
+        #noaa_spc
