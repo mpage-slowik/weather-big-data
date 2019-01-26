@@ -10,7 +10,6 @@ def getData():
         location="US",
     )  # API request - starts the query
 
-    return query_job
     for row in query_job:  # API request - fetches results
         # Row values can be accessed by field name or index
         assert row[0] == row.name == row["state"]
