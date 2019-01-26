@@ -15,7 +15,6 @@ def getJsonData():
             ") as t"
     )
     query_job = client.query(query)  # API request - starts the query
-    data = []
     t = {}
     i = 0
     for row in query_job:  # API request - fetches results
@@ -25,8 +24,7 @@ def getJsonData():
         t[i] = {'longitude': [d['longitude']], 'latitude': [d['latitude']]}
         i = i +1
     df = pd.DataFrame(data=t)
-    data.append(df)
-    return data
+    return df
 
 
 if __name__ == '__main__':
