@@ -1,5 +1,6 @@
 from google.cloud import bigquery
 import json
+import pandas as pd
 
 
 def getDataTsunami():
@@ -13,20 +14,26 @@ def getDataTsunami():
     
     query_job = client.query(query)  # API request - starts the query
      # API request - starts the query
-    tsuData = [] 
+    tsunamiData = []
+    coord = {}
+    i = 0
 
     for row in query_job:  # API request - fetches results
         js =  json.loads(row[0])
-        coord = {
+        coord[i] = {
+
             'longitute' : js['longitude'],
             'latitude' : js['latitude']
         }
-        print (coord)
-        tsuData.append(coord)
-        print("\n")
-
         
+        i = i + 1
 
+    df = pd.DataFrame(data=coord)
+    tsunamiData.append(df)
+
+    return tsunamiData
+            
 if __name__ == '__main__':
-    getDataTsunami()
+   d =  getDataTsunami()
+   print (d)
 
