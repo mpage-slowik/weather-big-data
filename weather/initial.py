@@ -12,11 +12,11 @@ def getData():
 
     for row in query_job:  # API request - fetches results
         # Row values can be accessed by field name or index
-        assert row[0] == row.name == row["state"]
+        # assert row["state"]
 
    #     return row[7]
-        print(row)
-        print("\n")
+        print(row[9])
+        #print("\n")
         #noaa_tsunami
         #noaa_significant_earthquakes
         #noaa_spc

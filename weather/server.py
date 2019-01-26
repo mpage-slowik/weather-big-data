@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from initial import getData
 import json
 app = Flask(__name__)
