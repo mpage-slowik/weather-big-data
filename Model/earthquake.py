@@ -1,28 +1,25 @@
-from sqlobject import *
 from google.cloud import bigquery
 import simplejson
 
-class Earthquake(SQLObject):
+# class Earthquake():
 
-    name = StringCol()
-    artist = StringCol()
-    album = StringCol()
+    # country = StringCol()
+    # latitude = StringCol()
+    # longitude = StringCol()
 
 def getData():
     client = bigquery.Client()
     query = (
-        "SELECT * FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes` LIMIT 100"
+        "SELECT TO_JSON_STRING(t,true)" + "FROM ( "
+        "SELECT  * FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes` " +
+        "WHERE latitude IS NOT NULL AND longitude IS NOT NULL " +
+        "LIMIT 10" +") as t"
     )
-    query_job = client.query(
-        query,
-    )  # API request - starts the query
+    query_job = client.query(query)  # API request - starts the query
 
     for row in query_job:  # API request - fetches results
         # Row values can be accessed by field name or index
-        assert row[0] == row.id 
-
-        print(row)
-        print(simplejson.dumps(row))
+        print(row[0])
         print("\n")
         break
 
