@@ -55,7 +55,7 @@ def getHailReports():
         d = json.loads(row[0])
         lng.append(d['longitude'])
         lat.append(d['latitude'])
-    py.iplot(data, filename = 'basic-line')
+    df = pd.DataFrame({'lng':lng,'lat':lat})
     return df
 
 if __name__ == '__main__':

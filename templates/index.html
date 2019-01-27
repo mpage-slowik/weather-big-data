@@ -1,15 +1,17 @@
 {% extends "bootstrap/base.html" %}
-<!DOCTYPE html>
     {%block head %}
     {{super()}}
         <title>Weather</title>
     <style>
+        body{
+            height: 100%;
+        }
         #pichart{
             height:230px;
             width:300px;
         }
         #cont{
-            margin-top: 180px;
+            margin-top: 5%;
 
         }
         #mid-cont{
@@ -118,4 +120,3 @@ header.masthead{
     {% block scripts %}
     {{super()}}
 {% endblock %}
-</html>

@@ -2,15 +2,31 @@
 {% extends "bootstrap/base.html" %}
 {%block head %}
 <title>About Us</title>
+
 {{super()}}
+<style>
+.navbar-brand {
+    background: rgb(74, 138, 190);
+    color: white;
+}
+.navbar-brand:hover {
+    color: black;
+}
+header{
+    background: rgb(74, 138, 190);
+    color: white;
+}
+</style>
 {%endblock%}
 {%block body %}
 {% block content %}
-<header class="bg-primary text-center py-5 mb-4">
+<div class="navbar-header">
+        <a class="navbar-brand" href="/">Go Back</a>
+</div>
+<header class="text-center py-5 mb-4">
+
         <div class="container">
-                <div class="navbar-header">
-                        <a class="navbar-brand" href="">What Happened to My Earth?</a>
-                </div>
+
           <h1 class="font-weight-light text-white">Meet the Team</h1>
         </div>
       </header>

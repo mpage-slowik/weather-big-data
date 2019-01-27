@@ -27,9 +27,10 @@ def wea():
 @app.route("/AboutUs")
 def about():
     return render_template("about.html")
-    
+
 if __name__ == '__main__':
     Bootstrap(app)
     # print(app.root_path)
-    app.run(debug=True)
     plotting.main()
+    app.run(debug=True)
+
