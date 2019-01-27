@@ -1,16 +1,16 @@
 from flask import Flask, jsonify, render_template
-# from plotting import plotPoints
-from  model import earthquake
+from weather.plotting import plotPoints
+from  Model import earthquake
 import json
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello():
-    print(earthquake.getData())
-    # graph1_url=plotPoints()
-    # return render_template("index.html",
-    # graph1=graph1_url,)
+    #print(earthquake.getData())
+     graph1_url=plotPoints()
+     return render_template("index.html",
+     graph1=graph1_url.display(),)
 
 # @app.route("/hello")
 # def h():
