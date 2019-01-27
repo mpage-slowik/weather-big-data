@@ -1,19 +1,75 @@
+{% extends "bootstrap/base.html" %}
 <!DOCTYPE html>
-    <head>
+    {%block head %}
+    {{super()}}
         <title>Weather</title>
-    </head>
-    <body>
-        <nav>
-            <div class="title">What Happened to My Earth?</div>
-        </nav>
-        <div class="banner">
-            <h1 class="title">What Happened to My Earth?</h1>
-            <p class="subtext">Tsunamis and Earthquakes throughout history</p>
-            <p class="subtext">With the US's great weather</p>
-            <div><a href="/Tsunami">Tsunami Map</a></div>
-            <div><a href="/Earthquakes">Earthquake Map</a></div>
-            <div><a href="/Weather">Weather Map</a></div>
-        </div>
-        
-    </body>
+    <style>
+        #cont{
+            margin-top: 180px;
+        }
+        #mid-cont{
+            margin-top: 20px;
+        }
+    </style>
+    {%endblock%}
+    {%block body %}
+            {% block navbar %}
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                        <div class="navbar-header">
+                                <a class="navbar-brand" href="">What Happened to My Earth?</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+
+                                <li class="active"><a href="/Tsunami">Tsunami Map</a></li>
+                                <li><a href="/Earthquakes">Earthquake Map</a></li>
+                                <li><a href="/Weather">Weather Map</a></li>
+                              </ul>
+                </div>
+            </nav>
+            {% endblock %}
+            {% block content %}
+            <header id="cont" class="masthead text-center">
+                <div class="masthead-content">
+                        <div class="container-fluid">
+                          <h1 class="masthead-heading mb-0">What Happened to My Earth?</h1>
+                          <h2 class="masthead-subheading mb-0">Tsunamis and Earthquakes throughout history</h2>
+                          <h2 class="masthead-subheading mb-0">With USA's great weather</h2>
+                        </div>
+                      </div>
+            </header>
+            <section id="mid-cont">
+                    <div class="container-fluid">
+                      <div class="row align-items-center">
+                        <div class="col-md-6">
+                          <div class="p-5">
+                            <img class="img-fluid" src="{{cloud}}" alt="Cloud image">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="p-5">
+                            <h2 class="display-2">Seeing Patterns</h2>
+                            <p>The Idea behind our app was to deliver historical data of the
+                                 locations that there have been Tsunami's, Earthquakes in the world.
+                                 To further show the weather trends in the United States. </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+
+             {%block footer%}
+                    <footer class="footer navbar-fixed-bottom" >
+                        <div class="container-fluid">
+                                <p class="text-center small">*Smaller sample of larger data set, may show bias*</p>
+                                <p class="text-center small">Copyright &copy; WeatheredTeam</p>
+                        </div>
+                      </footer>
+        {% endblock %}
+        {% endblock %}
+    {%endblock%}
+    {% block scripts %}
+    {{super()}}
+{% endblock %}
 </html>

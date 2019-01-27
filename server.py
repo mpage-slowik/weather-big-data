@@ -1,13 +1,14 @@
 from flask import Flask, jsonify, render_template
+from flask_bootstrap import Bootstrap
 import json
+import plotting
 app = Flask(__name__)
 
-
 @app.route("/")
-def hello():
-    #print(earthquake.getData())
-    #fig1 = plotPoints()
-    return render_template("index.html")
+def index():
+    cloud = "templates/static/cloud.png"
+    water = "templates/static/water-drop.png"
+    return render_template("index.html",cloud=cloud, water=water)
 
 @app.route("/Tsunami")
 def hur():
@@ -25,4 +26,6 @@ def wea():
     return render_template("weather.html")
 
 if __name__ == '__main__':
+    Bootstrap(app)
     app.run(debug=True)
+    #plotting.main()

@@ -9,7 +9,7 @@ def getDataTsunami():
         "SELECT TO_JSON_STRING(t,true)" + "FROM ( "
         "SELECT  * FROM `bigquery-public-data.noaa_tsunami.historical_runups` " +
         "WHERE latitude IS NOT NULL AND longitude IS NOT NULL " +
-        "LIMIT 10" +") as t"
+        "LIMIT 1000" +") as t"
     )
     
     query_job = client.query(query)  # API request - starts the query
@@ -34,7 +34,7 @@ def getMostOccurentTsunami():
         "SELECT country, COUNT(*) AS cnt "+
         "FROM `bigquery-public-data.noaa_tsunami.historical_runups` " +
         "GROUP BY country "+
-        "ORDER BY cnt DESC " + "LIMIT 1000"+
+        "ORDER BY cnt DESC " + "LIMIT 10"+
         ") as t"
     )
     
