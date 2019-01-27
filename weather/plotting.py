@@ -10,8 +10,14 @@ def plotPoints():
     x = [randint(-10100, -9400)/100 for i in range(30)]
     y = [randint(3700, 4000)/100 for i in range(30)]
     ax.plot(x, y, 'bo')
+<<<<<<< HEAD
     return mplleaflet
     # img = io.BytesIO()
+=======
+    mplleaflet.display(fig=fig)
+
+    img = io.BytesIO()
+>>>>>>> 21e2b4a192e62374ecc5fe0d82d3191af65f7a04
     # df = pd.DataFrame(np.random.randn(4, 4), index=list('ABCD'),columns=list('ABCD'))
     # lat = [1.1,2.0,1.3]
     # lon = [2.2,4.0,2.3]
@@ -19,8 +25,8 @@ def plotPoints():
     # plt.scatter(lat, lon, c=count)
     # plt.colorbar()
     # plt.savefig(img, format='png')
-    # img.seek(0)
-    # graph_url = base64.b64encode(img.getvalue()).decode()
+    img.seek(0)
+    graph_url = base64.b64encode(img.getvalue()).decode()
     # plt.close()
     #return 'data:image/png;base64,{}'.format(graph_url)
 if __name__ == '__main__':
