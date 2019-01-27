@@ -12,19 +12,18 @@ def getJsonData():
         "SELECT TO_JSON_STRING(t,true)" + "FROM ( "
                 "SELECT  * FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes` " +
                 "WHERE latitude IS NOT NULL AND longitude IS NOT NULL AND ID IS NOT NULL " +
-                "LIMIT 10" +
+                "LIMIT 1000" +
             ") as t"
     )
     query_job = client.query(query)  # API request - starts the query
-    t = {}
-    i = 0
+    lng, lat = [],[]
     for row in query_job:  # API request - fetches results
         # Row values can be accessed by field name or index
         d = json.loads(row[0])
-
-        t[i] = {'longitude': [d['longitude']], 'latitude': [d['latitude']]}
-        i = i +1
-    df = pd.DataFrame(data=t)
+        lng.append(d['longitude'])
+        lat.append(d['latitude'])
+    df = pd.DataFrame({'lng':lng,'lat':lat})
+    #print(df['lng'])
     return df
 
 

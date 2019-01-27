@@ -14,24 +14,15 @@ def getDataTsunami():
     
     query_job = client.query(query)  # API request - starts the query
      # API request - starts the query
-    tsunamiData = []
-    coord = {}
-    i = 0
 
+    lng, lat = [],[]
     for row in query_job:  # API request - fetches results
-        js =  json.loads(row[0])
-        coord[i] = {
+        d = json.loads(row[0])
+        lng.append(d['longitude'])
+        lat.append(d['latitude'])
+    df = pd.DataFrame({'lng':lng,'lat':lat})
 
-            'longitute' : js['longitude'],
-            'latitude' : js['latitude']
-        }
-        
-        i = i + 1
-
-    df = pd.DataFrame(data=coord)
-    tsunamiData.append(df)
-
-    return tsunamiData
+    return df
 
 
 
@@ -43,7 +34,7 @@ def getMostOccurentTsunami():
         "SELECT country, COUNT(*) AS cnt "+
         "FROM `bigquery-public-data.noaa_tsunami.historical_runups` " +
         "GROUP BY country "+
-        "ORDER BY cnt DESC " + "LIMIT 5"+
+        "ORDER BY cnt DESC " + "LIMIT 1000"+
         ") as t"
     )
     
@@ -57,5 +48,6 @@ def getMostOccurentTsunami():
 if __name__ == '__main__':
   # d =  getDataTsunami()
   # print (d)
+  #make pi chart with
   getMostOccurentTsunami()
 
