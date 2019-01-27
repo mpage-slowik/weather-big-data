@@ -8,7 +8,7 @@ def getWindReports():
              "SELECT TO_JSON_STRING(t,true)" + "FROM ( "
         "SELECT  * FROM `bigquery-public-data.noaa_spc.wind_reports` " +
         "WHERE latitude IS NOT NULL AND longitude IS NOT NULL " +
-        "LIMIT 10000" +") as t"
+        "LIMIT 1000" +") as t"
         # "SELECT * FROM `bigquery-public-data.noaa_spc.wind_reports` LIMIT 1"
     )
     query_job = client.query(query)  # API request - starts the query
@@ -27,7 +27,7 @@ def getTornadoReports():
              "SELECT TO_JSON_STRING(t,true)" + "FROM ( "
         "SELECT  * FROM `bigquery-public-data.noaa_spc.tornado_reports` " +
         "WHERE latitude IS NOT NULL AND longitude IS NOT NULL " +
-        "LIMIT 10000" +") as t"
+        "LIMIT 1000" +") as t"
         # "SELECT * FROM `bigquery-public-data.noaa_spc.wind_reports` LIMIT 1"
     )
     query_job = client.query(query)  # API request - starts the query
@@ -45,7 +45,7 @@ def getHailReports():
              "SELECT TO_JSON_STRING(t,true)" + "FROM ( "
         "SELECT  * FROM `bigquery-public-data.noaa_spc.hail_reports` " +
         "WHERE latitude IS NOT NULL AND longitude IS NOT NULL " +
-        "LIMIT 10000" +") as t"
+        "LIMIT 1000" +") as t"
         # "SELECT * FROM `bigquery-public-data.noaa_spc.wind_reports` LIMIT 1"
     )
     query_job = client.query(query)  # API request - starts the query
