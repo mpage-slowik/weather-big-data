@@ -4,7 +4,7 @@ import pandas as pd
 
 def getData():
     data = getJsonData()
-    print(data)
+    return data
 
 def getJsonData():
     client = bigquery.Client()

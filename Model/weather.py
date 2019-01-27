@@ -1,4 +1,3 @@
-from sqlobject import *
 from google.cloud import bigquery
 import simplejson as json
 import json

@@ -12,7 +12,7 @@ def plotPoints():
     ax.plot(x, y, 'bo')
     mplleaflet.display(fig=fig)
 
-    # img = io.BytesIO()
+    img = io.BytesIO()
     # df = pd.DataFrame(np.random.randn(4, 4), index=list('ABCD'),columns=list('ABCD'))
     # lat = [1.1,2.0,1.3]
     # lon = [2.2,4.0,2.3]
@@ -20,7 +20,7 @@ def plotPoints():
     # plt.scatter(lat, lon, c=count)
     # plt.colorbar()
     # plt.savefig(img, format='png')
-    # img.seek(0)
-    # graph_url = base64.b64encode(img.getvalue()).decode()
+    img.seek(0)
+    graph_url = base64.b64encode(img.getvalue()).decode()
     # plt.close()
     return 'data:image/png;base64,{}'.format(graph_url)
