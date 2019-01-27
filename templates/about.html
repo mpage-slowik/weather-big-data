@@ -1,0 +1,67 @@
+<!-- Header -->
+{% extends "bootstrap/base.html" %}
+{%block head %}
+<title>About Us</title>
+{{super()}}
+{%endblock%}
+{%block body %}
+{% block content %}
+<header class="bg-primary text-center py-5 mb-4">
+        <div class="container">
+          <h1 class="font-weight-light text-white">Meet the Team</h1>
+        </div>
+      </header>
+      
+      <!-- Page Content -->
+      <div class="container">
+        <div class="row">
+          <!-- Team Member 1 -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow">
+              <img style=" width: 300px;height: 300px; display: block;margin-left: auto;margin-right: auto;" src="https://scontent.fyhu1-1.fna.fbcdn.net/v/t1.0-9/30724012_1956795480997322_852606168520982528_n.jpg?_nc_cat=106&_nc_ht=scontent.fyhu1-1.fna&oh=b64ee2c79a858b310a21d38b99d24bff&oe=5CFC054F" class="card-img-top" alt="...">
+              <div class="card-body text-center">
+                <h5 class="card-title mb-0">Max Page-Slowik</h5>
+                <div class="card-text text-black-50">Developer</div>
+              </div>
+            </div>
+          </div>
+          <!-- Team Member 2 -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow">
+                    <img style=" width: 300px;height: 300px; display: block;margin-left: auto;margin-right: auto;" src="https://scontent.fyhu1-1.fna.fbcdn.net/v/t1.0-9/35135028_10156056963545100_705873575835336704_n.jpg?_nc_cat=107&_nc_ht=scontent.fyhu1-1.fna&oh=a956adc3977f96ec8f3990f10b6154e9&oe=5CC5CE68" class="card-img-top" alt="...">
+              <div class="card-body text-center">
+                <h5 class="card-title mb-0">Jesse Silber</h5>
+                <div class="card-text text-black-50">Developer</div>
+              </div>
+            </div>
+          </div>
+          <!-- Team Member 3 -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow">
+                    <img style=" width: 300px;height: 300px; display: block;margin-left: auto;margin-right: auto;" src="https://www.autourdelacom.fr/wp-content/uploads/2018/03/default-female-user-profile-image.jpg" class="card-img-top" alt="...">
+                                  <div class="card-body text-center">
+                <h5 class="card-title mb-0">Line Ghanem</h5>
+                <div class="card-text text-black-50">Developer</div>
+              </div>
+            </div>
+          </div>
+          <!-- Team Member 4 -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow">
+                    <img style=" width: 300px;height: 300px; display: block;margin-left: auto;margin-right: auto;" src="https://media.licdn.com/dms/image/C4D03AQGYKlWAULxhmg/profile-displayphoto-shrink_800_800/0?e=1554336000&v=beta&t=7r-CJeIfsc3oi2SZFvR1T3oTyuPrNQ_cLLmDg2uO28U" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                <h5 class="card-title mb-0">Alexander Coricovac</h5>
+                <div class="card-text text-black-50">Developer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+      
+      </div>
+      <!-- /.container -->
+      {% endblock %}
+  {%endblock%}
+  {% block scripts %}
+  {{super()}}
+{% endblock %}

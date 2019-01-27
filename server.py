@@ -24,6 +24,10 @@ def wea():
     #plotWeather("weather",weather.getHailReports(),weather.getWindReports(),weather.getTornadoReports())
     return render_template("weather.html")
 
+@app.route("/AboutUs")
+def about():
+    return render_template("about.html")
+    
 if __name__ == '__main__':
     Bootstrap(app)
     # print(app.root_path)
