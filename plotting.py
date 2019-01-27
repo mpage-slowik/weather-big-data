@@ -48,4 +48,4 @@ def main():
                 f.close()
                 time.sleep(self.interval)
     #start threading
-    Threading(600)
+    Threading(360)
