@@ -8,9 +8,8 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     #print(earthquake.getData())
-     graph1_url=plotPoints()
-     return render_template("index.html",
-     graph1=graph1_url.display(),)
+    fig1 = plotPoints()
+    return render_template("index.html", fig1=fig1)
 
 # @app.route("/hello")
 # def h():
