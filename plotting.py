@@ -38,10 +38,10 @@ def main():
                 ax.plot(x, y, 'b*')
                 x = [wind_la_ln['lng']]
                 y = [wind_la_ln['lat']]
-                ax.plot(x, y, 'b>')
+                ax.plot(x, y, 'r>')
                 x = [tornado_la_ln['lng']]
                 y = [tornado_la_ln['lat']]
-                ax.plot(x, y, 'b^')
+                ax.plot(x, y, 'g^')
                 maps="templates/"+map_name+".html"
                 f=open(maps,"w")
                 f.write(mplleaflet.fig_to_html(fig=fig))

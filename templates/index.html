@@ -4,13 +4,17 @@
     {{super()}}
         <title>Weather</title>
     <style>
+        #pichart{
+            height:230px;
+            width:300px;
+        }
         #cont{
             margin-top: 180px;
 
         }
         #mid-cont{
             margin-top: 20px;
-            margin-bottom: 70px;
+            margin-bottom: 80px;
 
 }
 .navbar-default .navbar-brand {
@@ -37,11 +41,7 @@ header.masthead{
     background:url("{{url_for('static',filename='water-drop.jpg')}}");
     height:100%
 }
-.img-fluid.rounded-circle{
-    height: 100px;
-    width: 100px;
-    float: right;
-}
+
 .footer.navbar-fixed-bottom{
     margin-top: 5px;
     background:rgb(74, 138, 190);
@@ -82,11 +82,7 @@ header.masthead{
             <section id="mid-cont">
                     <div class="container-fluid">
                       <div class="row align-items-center">
-                        <div class="col-md-3">
-                          <div class="p-5">
-                            <img class="img-fluid rounded-circle" src="{{url_for('static',filename='cloud.png')}}" alt="Cloud image">
-                          </div>
-                        </div>
+                        <div class="col-md-3"></div>
                         <div class="col-md-3">
                           <div class="p-5">
                             <h2 class="display-2">Seeing Patterns</h2>
@@ -95,6 +91,12 @@ header.masthead{
                                  To further show the weather trends in the United States. </p>
                           </div>
                         </div>
+                        <div class="col-md-3">
+                                <div class="p-5">
+                                  <iframe frameborder="0" id="pichart" src="{{url_for('static',filename='piechart.html')}}"></iframe>
+                                <p>Top Ten Tsunami Countries, of All Time</p>
+                                </div>
+                            </div>
                       </div>
                     </div>
                   </section>
@@ -104,6 +106,7 @@ header.masthead{
                     <footer class="footer navbar-fixed-bottom" >
                         <div class="container-fluid">
                                 <p class="text-center small">*Smaller sample of larger data set, may show bias*</p>
+                                <p class="text-center small">All data gathered from NOAA database on Google Cloud Platform</p>
                                 <p class="text-center small">Copyright &copy; WeatheredTeam</p>
                         </div>
                       </footer>
