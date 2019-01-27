@@ -6,10 +6,51 @@
     <style>
         #cont{
             margin-top: 180px;
+
         }
         #mid-cont{
             margin-top: 20px;
-        }
+            margin-bottom: 70px;
+
+}
+.navbar-default .navbar-brand {
+    background: rgb(74, 138, 190);
+    color: white;
+}
+.navbar-default .navbar-brand:hover {
+    background: white;
+    color: black;
+}
+.navbar-default .navbar-nav>li>a {
+    background: rgb(74, 138, 190);
+    color: white;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    background: white;
+    color: black;
+}
+.navbar{
+    background: rgb(74, 138, 190);
+    color: white;
+}
+header.masthead{
+    background:url("{{url_for('static',filename='water-drop.jpg')}}");
+    height:100%
+}
+.img-fluid.rounded-circle{
+    height: 100px;
+    width: 100px;
+    float: right;
+}
+.footer.navbar-fixed-bottom{
+    margin-top: 5px;
+    background:rgb(74, 138, 190);
+    border-top:white;
+    color: white;
+}
+.row.align-items-center{
+    align-content: center;
+}
     </style>
     {%endblock%}
     {%block body %}
@@ -21,7 +62,7 @@
                         </div>
                         <ul class="nav navbar-nav">
 
-                                <li class="active"><a href="/Tsunami">Tsunami Map</a></li>
+                                <li><a href="/Tsunami">Tsunami Map</a></li>
                                 <li><a href="/Earthquakes">Earthquake Map</a></li>
                                 <li><a href="/Weather">Weather Map</a></li>
                               </ul>
@@ -29,9 +70,9 @@
             </nav>
             {% endblock %}
             {% block content %}
-            <header id="cont" class="masthead text-center">
+            <header class="masthead text-center">
                 <div class="masthead-content">
-                        <div class="container-fluid">
+                        <div id="cont" class="container-fluid">
                           <h1 class="masthead-heading mb-0">What Happened to My Earth?</h1>
                           <h2 class="masthead-subheading mb-0">Tsunamis and Earthquakes throughout history</h2>
                           <h2 class="masthead-subheading mb-0">With USA's great weather</h2>
@@ -41,16 +82,16 @@
             <section id="mid-cont">
                     <div class="container-fluid">
                       <div class="row align-items-center">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                           <div class="p-5">
-                            <img class="img-fluid" src="{{cloud}}" alt="Cloud image">
+                            <img class="img-fluid rounded-circle" src="{{url_for('static',filename='cloud.png')}}" alt="Cloud image">
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                           <div class="p-5">
                             <h2 class="display-2">Seeing Patterns</h2>
-                            <p>The Idea behind our app was to deliver historical data of the
-                                 locations that there have been Tsunami's, Earthquakes in the world.
+                            <p>The idea behind our app was to deliver historical data of the
+                                 locations that there have been tsunami's, earthquakes in the world.
                                  To further show the weather trends in the United States. </p>
                           </div>
                         </div>

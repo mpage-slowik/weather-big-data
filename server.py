@@ -1,13 +1,14 @@
 from flask import Flask, jsonify, render_template
 from flask_bootstrap import Bootstrap
 import json
+import os
 import plotting
-app = Flask(__name__)
-
+app = Flask(__name__) 
+#app.config['UPLOAD_FOLDER']= os.path.join("templates","static")
 @app.route("/")
 def index():
-    cloud = "templates/static/cloud.png"
-    water = "templates/static/water-drop.png"
+    #cloud = os.path.join(app.config['UPLOAD_FOLDER'],'cloud.png')
+    #water = os.path.join(app.config['UPLOAD_FOLDER'],'water-drop.png')
     return render_template("index.html",cloud=cloud, water=water)
 
 @app.route("/Tsunami")
@@ -27,5 +28,7 @@ def wea():
 
 if __name__ == '__main__':
     Bootstrap(app)
+    # print(app.root_path)
     app.run(debug=True)
-    #plotting.main()
+
+    plotting.main()
