@@ -1,19 +1,14 @@
 from flask import Flask, jsonify, render_template
-from initial import getData
-from plotting import build_plot
-#from bokeh import 
+from plotting import plotPoints
 import json
 app = Flask(__name__)
 
-@app.route('/plot')
-def render_plot():
-    plot_snippet = build_plot()
-    
-    return render_template('plots.html', snippet=plot_snippet)
 
 @app.route("/")
 def hello():
-    return render_template("index.html")
+    graph1_url=plotPoints()
+    return render_template("index.html",
+    graph1=graph1_url,)
 
 @app.route("/hello")
 def h():
